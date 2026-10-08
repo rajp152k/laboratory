@@ -1,0 +1,11 @@
+(adr
+ :v 1
+ :id "000"
+ :title "Use Lisp-native S-expression records"
+ :status :accepted
+ :context "The laboratory needs a data format that Common Lisp can read and tools can inspect and validate without inheriting Org or Markdown semantics."
+ :decision "Use .ln files as one Common Lisp S-expression record. The root symbol names the record kind, such as adr or plain-text. The :v field selects that kind's record version. Interpret records as data; do not evaluate them. Define each kind and version with a schema data form in schemas/<kind>/v<version>.lisp. Schema declarations use the schema root and specify :kind, :v, :desc, and :type."
+ :consequences "The repository controls the format and its meaning. Records identify their kind and version, so tools can select the matching schema. Add explicit migrations when a later version needs to transform older records. Lisp tooling reads and validates records without evaluating them."
+ :details ((:schema :plain-text
+            :version 1
+            :form (plain-text :v 1 "Text content."))))

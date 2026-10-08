@@ -1,0 +1,5 @@
+#+TITLE: Laboratory notes
+
+* Intent
+
+This laboratory will use a purpose-built, Lisp-native file format based on Common Lisp S-expressions. We will define the format and its meaning as we build the lab.
